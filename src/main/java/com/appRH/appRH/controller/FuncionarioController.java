@@ -58,7 +58,7 @@ public class FuncionarioController {
 	
 	//Listar Dependentes
 	@RequestMapping(value = "/detalhesFuncionario/{id}", method = RequestMethod.GET)
-	public ModelAndView listarDependentes(@PathVariable("id") long id) {
+	public ModelAndView detalhesFuncionario(@PathVariable("id") long id) {
 		Funcionario funcionario = fr.findById(id);
 		ModelAndView mv = new ModelAndView("funcionario/detalhesFuncionario");
 		mv.addObject("funcionarios", funcionario);
@@ -74,7 +74,7 @@ public class FuncionarioController {
 	//Adicionar Dependentes
 	//O attributes servirá para fazer as validações dos campos ao efetuar a requisição POST.
 	@RequestMapping(value = "/detalhesFuncionario/{id}", method = RequestMethod.POST)
-	public String dependentesPost(@PathVariable("id") long id, Dependente dependentes, BindingResult result, RedirectAttributes attributes) {
+	public String detalhesFuncionarioPost(@PathVariable("id") long id, Dependente dependentes, BindingResult result, RedirectAttributes attributes) {
 		
 		System.out.println(dependentes.getDataNascimentoString());
 		if(result.hasErrors()) {

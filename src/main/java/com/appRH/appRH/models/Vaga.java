@@ -23,7 +23,7 @@ public class Vaga implements Serializable{
 	
 	/*Código da vaga*/
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)//Gere um valor de forma automatica que no caso será o id codigo.
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//Gere um valor de forma automatica que no caso será o id codigo. Porém o AUTO faz com que o spring crie uma tabela a mais para resolver esse problema colocaremos IDENTITY
 	private long codigo;
 	
 	@NotEmpty//NotEmpty o campo não pode ser vazio.

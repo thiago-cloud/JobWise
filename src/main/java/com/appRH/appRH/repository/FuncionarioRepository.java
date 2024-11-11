@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.appRH.appRH.models.Funcionario;
 
 
-public interface FuncionarioRepository extends CrudRepository<Funcionario, String>{
+public interface FuncionarioRepository extends CrudRepository<Funcionario, Long>{
 	
 	Funcionario findById(long id);
 	

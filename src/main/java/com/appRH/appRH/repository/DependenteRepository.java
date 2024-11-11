@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.appRH.appRH.models.Dependente;
 import com.appRH.appRH.models.Funcionario;
-public interface DependenteRepository extends CrudRepository<Dependente, String>{
+public interface DependenteRepository extends CrudRepository<Dependente, Long>{
 	
 	//Procura pelo funcionario
 	Iterable<Dependente> findByFuncionario(Funcionario funcionario);

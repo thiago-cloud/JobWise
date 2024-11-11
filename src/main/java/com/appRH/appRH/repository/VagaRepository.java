@@ -9,7 +9,7 @@ import com.appRH.appRH.models.Funcionario;
 import com.appRH.appRH.models.Vaga;
 
 
-public interface VagaRepository extends CrudRepository<Vaga, String>{
+public interface VagaRepository extends CrudRepository<Vaga, Long>{
 
 	/*Pesquisar a vaga através do codigo*/
 	Vaga findByCodigo(long codigo);

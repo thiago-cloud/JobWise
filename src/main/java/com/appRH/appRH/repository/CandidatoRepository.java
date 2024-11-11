@@ -9,7 +9,8 @@ import com.appRH.appRH.models.Candidato;
 import com.appRH.appRH.models.Funcionario;
 import com.appRH.appRH.models.Vaga;
 
-public interface CandidatoRepository extends CrudRepository<Candidato, String> {
+//esse crud repository se trata da classe candidato referenciado a chave primaria do tipo long
+public interface CandidatoRepository extends CrudRepository<Candidato, Long> {
 
 	Iterable<Candidato>findByVaga(Vaga vaga);
 	
