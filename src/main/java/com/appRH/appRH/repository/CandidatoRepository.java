@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import com.appRH.appRH.models.Candidato;
+import com.appRH.appRH.models.Funcionario;
 import com.appRH.appRH.models.Vaga;
 
 public interface CandidatoRepository extends CrudRepository<Candidato, String> {
@@ -16,8 +17,10 @@ public interface CandidatoRepository extends CrudRepository<Candidato, String> {
 	
 	Candidato findById(long id);
 	
-	List<Candidato>findByNomeCandidato(String nomeCandidato);
+	//List<Candidato>findByNomeCandidato(String nomeCandidato);
 
-	
+	//Para a busca
+	@Query(value = "select u from Candidato u where u.nomeCandidato like %?1%")
+	List<Candidato>findByNomesCandidatos(String nomeCandidato);
 	
 }

@@ -2,23 +2,29 @@ package com.appRH.appRH.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Dependentes {
+public class Dependente {
 
 	@Id
-	@GeneratedValue
-	private long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	
 	@Column(unique = true)
 	private String cpf;
 	
 	private String nome;
-	private String dataNascimentoString;
+	
+	@Column(name = "data_nascimento_string")
+	private LocalDate dataNascimentoString;
 	
 	@ManyToOne// Muitos dependentes para um
 	private Funcionario funcionario;
@@ -39,11 +45,11 @@ public class Dependentes {
 		this.nome = nome;
 	}
 
-	public String getDataNascimentoString() {
+	public LocalDate getDataNascimentoString() {
 		return dataNascimentoString;
 	}
 
-	public void setDataNascimentoString(String dataNascimentoString) {
+	public void setDataNascimentoString(LocalDate dataNascimentoString) {
 		this.dataNascimentoString = dataNascimentoString;
 	}
 

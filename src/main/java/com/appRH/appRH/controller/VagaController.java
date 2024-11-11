@@ -57,7 +57,7 @@ public class VagaController {
 	}
 	
 	//
-	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
+	@RequestMapping(value = "/vaga/{codigo}", method = RequestMethod.GET)
 	public ModelAndView detalhesVaga(@PathVariable("codigo") long codigo) {
 		Vaga vaga = vr.findByCodigo(codigo);
 		ModelAndView mv = new ModelAndView("vaga/detalhesVaga");
@@ -78,19 +78,19 @@ public class VagaController {
 	}
 	
 	//Adicionar candidato da página detalhesVaga
-	@RequestMapping(value = "/{codigo}", method = RequestMethod.POST)
+	@RequestMapping(value = "/vaga/{codigo}", method = RequestMethod.POST)
 	public String detalhesVagaPost(@PathVariable("codigo") long codigo, @Valid Candidato candidato, 
 			BindingResult result, RedirectAttributes attributes) {
 			
 		if(result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos");
-			return "redirect:/{codigo}";
+			return "redirect:/vaga/{codigo}";
 		}
 		
 		//RG duplicado
 		if(cr.findByRg(candidato.getRg()) != null) {
 				attributes.addFlashAttribute("mensagem_erro", "RG duplicado");
-				return "redirect:/{codigo}";
+				return "redirect:/vaga/{codigo}";
 		}
 		
 		//Caso o candidato não tenha o RG duplicado salve.
@@ -98,7 +98,7 @@ public class VagaController {
 		candidato.setVaga(vaga);
 		cr.save(candidato);
 		attributes.addFlashAttribute("mensagem", "Candidato adicionando com sucesso!");
-		return "redirect:/{codigo}";
+		return "redirect:/vaga/{codigo}";
 	}
 	
 		//Deletar candidato pelo RG
@@ -108,7 +108,7 @@ public class VagaController {
 			Vaga vaga = candidato.getVaga();
 			String codigo = "" + vaga.getCodigo();
 			cr.delete(candidato);
-			return "redirect:/"+codigo;
+			return "redirect:/vaga/"+codigo;
 		}
 	
 		//Métodos que atualizam a vaga
@@ -116,7 +116,7 @@ public class VagaController {
 		@RequestMapping(value = "/editar-vaga", method = RequestMethod.GET)
 		public ModelAndView editarVaga(long codigo) {
 			Vaga vaga  = vr.findByCodigo(codigo);
-			ModelAndView mv = new ModelAndView("vaga/update-vaga");
+			ModelAndView mv = new ModelAndView("vaga/updateVaga");
 			mv.addObject("vaga", vaga);
 			
 			return mv;
