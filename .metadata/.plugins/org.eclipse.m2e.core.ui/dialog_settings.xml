@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\thiag\Documents\Meus Projetos do github\JobWise"/>
 			<item value="C:\Users\thiag\Desktop\appRH"/>
 		</list>
 		<list key="projectNameTemplate">
