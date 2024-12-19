@@ -11,7 +11,7 @@
 	<groupId>com.appRH</groupId>
 	<artifactId>appRH</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>appRH</name>
+	<name>apprh</name>
 	<description>Aplicação de cadastro de vaga e cadastro de canditados para o RH.</description>
 	<url/>
 	<licenses>
